@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:practicas_flutter/screen/Onboarging.dart';
-import 'package:practicas_flutter/screen/crearCita_screen.dart';
-import 'package:practicas_flutter/screen/ingresarDatosFinales.dart';
-import 'package:practicas_flutter/screen/inicial_screen.dart';
-import 'package:practicas_flutter/screen/login_screen.dart';
-import 'package:practicas_flutter/screen/register_screen.dart';
+import 'package:practicas_flutter/presentation/screen/auth/ingresarDatosFinales.dart';
+import 'package:practicas_flutter/presentation/screen/auth/login_screen.dart';
+import 'package:practicas_flutter/presentation/screen/auth/register_screen.dart';
+import 'package:practicas_flutter/presentation/screen/crearCita_screen.dart';
+import 'package:practicas_flutter/presentation/screen/home/inicial_screen.dart';
+import 'package:practicas_flutter/presentation/screen/onboarding/Onboarging.dart';
+
 
 void main() {
   runApp(MyApp());
