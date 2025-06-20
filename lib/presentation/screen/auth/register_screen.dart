@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/data/http/AuthRepository.dart';
+import 'package:practicas_flutter/data/http/http_client.dart';
 import 'package:practicas_flutter/data/models/register_request.dart';
 import 'package:practicas_flutter/data/services/auth_service.dart';
 
@@ -16,7 +18,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _especialidadController = TextEditingController();
   final TextEditingController _telefonoController = TextEditingController();
 
-  final AuthService authService = AuthService();
+  final authService = AuthService(
+  AuthRepository(CustomHttpClient()),
+);
+
   String _selectedRol = "paciente";
   bool showPassword = false;
 

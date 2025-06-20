@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/data/http/AuthRepository.dart';
+import 'package:practicas_flutter/data/http/http_client.dart';
 import 'package:practicas_flutter/data/models/login_request.dart';
 import 'package:practicas_flutter/data/services/auth_service.dart';
 
@@ -12,14 +14,17 @@ class _LoginState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool showPassword = false;
-  AuthService authService = AuthService();
+  final authService = AuthService(
+  AuthRepository(CustomHttpClient()),
+);
+
   
 
   void iniciarSesion() async {
     final email = _emailController.text;
     final password = _passwordController.text;
     final loginRequest = LoginRequest(email: email, password: password);
-    AuthService authService = AuthService();
+   
     
     final response = await authService.login(loginRequest);
 
@@ -138,7 +143,7 @@ Widget build(BuildContext context) {
               height: 50,
               child: ElevatedButton(
                 onPressed: () async {
-        await authService.SignInGoogle(context); // Llamamos a la función asincrónica correctamente
+        await authService.signInGoogle(context); // Llamamos a la función asincrónica correctamente
       },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red[600],

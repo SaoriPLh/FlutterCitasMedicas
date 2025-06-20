@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/core/app_routes.dart';
 
 class FinalIntroPage extends StatelessWidget {
   const FinalIntroPage({super.key});
@@ -50,7 +51,7 @@ class FinalIntroPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, AppRoutes.login);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[800],
@@ -76,7 +77,7 @@ class FinalIntroPage extends StatelessWidget {
               width: double.infinity,
               child: OutlinedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/register');
+                  Navigator.pushNamed(context, AppRoutes.register);
                 },
                 style: OutlinedButton.styleFrom(
                   foregroundColor: Colors.blue[800],

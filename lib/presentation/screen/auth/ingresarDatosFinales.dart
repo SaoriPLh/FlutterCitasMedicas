@@ -1,6 +1,8 @@
 //pantalla que le aparecera al usuario despues de registrarse con su gmail donde este sera un ingreso de sus demas datos 
 
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/data/http/AuthRepository.dart';
+import 'package:practicas_flutter/data/http/http_client.dart';
 import 'package:practicas_flutter/data/models/RegisterGoogle.dart';
 import 'package:practicas_flutter/data/models/register_request.dart';
 import 'package:practicas_flutter/data/services/auth_service.dart';
@@ -18,8 +20,13 @@ class DatosFinales extends StatefulWidget {
 final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _especialidadController = TextEditingController();
   final TextEditingController _telefonoController = TextEditingController();
-    String _selectedRol = "paciente"; 
-    final AuthService authService = AuthService(); // Instancia del servicio de autenticación
+    String _selectedRol = "paciente";
+  
+
+final authService = AuthService(
+  AuthRepository(CustomHttpClient()),
+);
+ // Instancia del servicio de autenticación
   late String email;
 
   @override

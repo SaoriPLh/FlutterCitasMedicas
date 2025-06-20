@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/data/http/AuthRepository.dart';
+import 'package:practicas_flutter/data/http/CitaRepository.dart';
+import 'package:practicas_flutter/data/http/http_client.dart';
 import 'package:practicas_flutter/data/models/DoctorDTO.dart';
 import 'package:practicas_flutter/data/models/CitaRequest.dart';
 import 'package:practicas_flutter/data/models/UsuarioResponse.dart';
@@ -19,9 +22,11 @@ class CrearCitaScreen extends StatefulWidget {
 class _CrearCitaScreenState extends State<CrearCitaScreen> {
   final TextEditingController _descripcionController = TextEditingController();
   final DoctorService _doctorService = DoctorService();
-  final CitaService _citaService = CitaService();
+  final citaService = CitaService(CitaRepository(CustomHttpClient()));
    Usuarioresponse? usuario;
-   final authService = AuthService();
+final authService = AuthService(
+  AuthRepository(CustomHttpClient()),
+);
   String? especialidadSeleccionada;
   int? idDoctorSeleccionado;
   DoctorDatosDTO? doctorSeleccionado;
@@ -113,7 +118,7 @@ class _CrearCitaScreenState extends State<CrearCitaScreen> {
         hora: hora,
       );
 
-      await _citaService.crearCita(cita);
+      await citaService.crearCita(cita);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Cita registrada con éxito")));
     }
   }

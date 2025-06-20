@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practicas_flutter/core/app_routes.dart';
+import 'package:practicas_flutter/data/http/AuthRepository.dart';
+import 'package:practicas_flutter/data/http/CitaRepository.dart';
+import 'package:practicas_flutter/data/http/http_client.dart';
 import 'package:practicas_flutter/data/models/CitaResponseDTO.dart';
 import 'package:practicas_flutter/data/models/UsuarioResponse.dart';
 import 'package:practicas_flutter/data/services/auth_service.dart';
@@ -10,8 +14,11 @@ class InicialScreen extends StatefulWidget {
 }
 
 class _InicialScreenState extends State<InicialScreen> {
-  final authService = AuthService();
-  final citaService = CitaService();
+ final authService = AuthService(
+  AuthRepository(CustomHttpClient()),
+);
+
+  final citaService = CitaService(CitaRepository(CustomHttpClient()));
   Usuarioresponse? usuario;
   List<CitaResponse> citas = [];
   bool isLoading = true;
@@ -97,7 +104,7 @@ Future<void> cargarDatos() async {
                       title: Text('Crear nueva cita', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[900])),
                       subtitle: Text('Accede rápidamente al formulario para agendar una cita'),
                       onTap: () {
-                        Navigator.pushNamed(context, '/crearCita');
+                        Navigator.pushNamed(context, AppRoutes.crearCita);
                       },
                     ),
                   ),
