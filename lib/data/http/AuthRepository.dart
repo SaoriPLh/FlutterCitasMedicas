@@ -14,23 +14,25 @@ class AuthRepository {
 
   //aca falta declarar la ruta base para concatenarla con cada metodo
 
+  final String baseUrl = '/auth';
+
   AuthRepository(this._client);
 
   Future<http.Response> login(LoginRequest request) {
     return _client.post(
-      "/login",
+      "$baseUrl/login",
       body: jsonEncode(request.toJson()),
     );
   }
 
   Future<http.Response> register(RegisterRequest request ){
 
-    return _client.post("/register",body: jsonEncode(request.toJson())); //aca primero nuestro objeto lo pasamos como mapString y luego este en JSON con  jsonEncode
+    return _client.post("$baseUrl/register",body: jsonEncode(request.toJson())); //aca primero nuestro objeto lo pasamos como mapString y luego este en JSON con  jsonEncode
   }
 
   Future<http.Response> validateGoogleToken(String idToken) {
   return _client.post(
-    "/validate-token-register",
+    "$baseUrl/validate-token-register",
     body: jsonEncode({"id_token": idToken}),
   );
 }
@@ -39,13 +41,13 @@ class AuthRepository {
 
 Future<http.Response> completeGoogleRegistration(RegistergoogleRequest request) {
   return _client.post(
-    "/llenarDatosRegisterPostGoogle",
+    "$baseUrl/llenarDatosRegisterPostGoogle",
     body: jsonEncode(request.toJson()),
   );
 }
 Future<String?> validateGoogleLoginToken(String idToken) async {
   final response = await _client.post(
-    "/validate-token-register",
+    "$baseUrl/validate-token-register",
     body: jsonEncode({"id_token": idToken}),
   );
 
@@ -73,7 +75,7 @@ Future<http.Response> getUsuarioActual() async {
   }
 
   return _client.get(
-    "/me",
+    "$baseUrl/me",
     headers: {
       'Authorization': 'Bearer $token',
     },
