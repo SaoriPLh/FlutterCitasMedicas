@@ -17,32 +17,55 @@ Este proyecto simula un sistema real de **registro, inicio de sesión, reserva d
 - 🧱 Arquitectura limpia: `HttpClient`, `Repository`, `Service`, `DTOs`.
 
 ---
-
-## 📲 Flujo visual de la app
+## 📲 Flujo visual de la aplicación
 
 ### 🟦 Onboarding
-> Introduce la app con un diseño limpio y profesional.
+
+Pantalla introductoria elegante y profesional:
 
 ![Onboarding](docs/onboardingScreen.jpeg)
 
-### 🔐 Login y Registro
-> Autenticación por correo o Google Sign-In.
+---
 
-| Login | Registro |
-|-------|----------|
+### 🔐 Autenticación
+
+| Login tradicional | Registro por correo |
+|-------------------|---------------------|
 | ![Login](docs/loginScreen.jpeg) | ![Register](docs/RegisterScreen.jpeg) |
 
+---
+
+### 🔓 Login con Google
+
+Inicio de sesión moderno con Google:
+
+![Login con Google](docs/loginwithprovider.jpeg)
+
+---
+
+### 📝 Completar perfil (después de Google)
+
+| Doctor | Paciente |
+|--------|----------|
+| ![Doctor](docs/completarPerfil.jpeg) | ![Paciente](docs/completarPerfilOpcion2.jpeg) |
+
+---
+
 ### 🏠 Pantalla principal
-> Acceso a funciones clave y navegación.
+
+Acceso rápido a funciones principales según el rol:
 
 ![Home](docs/homeScreen.jpeg)
 
-### 📝 Reservar una cita
-> Formulario dinámico según el rol del usuario.
+---
+
+### 📅 Crear una cita
 
 | Formulario | Confirmación |
 |------------|--------------|
-| ![Crear Cita](docs/crearCitaScreen.jpeg) | ![Confirmación](docs/crearCita-1.jpeg) |
+| ![Formulario](docs/crearCitaScreen.jpeg) | ![Confirmación](docs/crearCita-1.jpeg) |
+
+---
 
 ---
 
