@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:practicas_flutter/data/models/DoctorDTO.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:practicas_flutter/models/DoctorDTO.dart';
+
 
 class HorariosDisponiblesScreen extends StatefulWidget {
   final DoctorDatosDTO doctor;
